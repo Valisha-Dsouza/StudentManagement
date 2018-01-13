@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+<title >Form validation</title>
+<script type="text/javascript">
+function requiredfields(thisform)
+{
+var username=thisform.uname.value;
+var password=thisform.upass.value;
+if(username==null||username=="")
+{
+alert("user name is empty");
+thisform.uname.focus();
+return false;
+}
+if(password==""||password==null)
+{
+alert("password is empty");
+thisform.upass.focus();
+return false;
+}
+if(password.length<8)
+{
+alert("password must have atleast 8 characters");
+thisform.upass.focus();
+return false;
+}
+return true;
+}
+</script>
+</head>
+<body>
+<form action="LoginServlet" onsubmit="return requiredfields(this)">
+User name:<input type="text" name="uname" value=""/><span style="color:red">*</span><br/><br/>
+Password:<input type="password" name="upass" value=""/><span style="color:red">*</span><br/><br/>
+<input type="submit" value="submit"/>
+</form>
+</body>
+</html>
